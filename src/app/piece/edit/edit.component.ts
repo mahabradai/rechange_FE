@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Piece } from '../piece';
 import { PieceService } from '../piece.service';
+import { Type } from 'src/app/type/type';
+import { TypeService } from 'src/app/type/type.service';
  
 @Component({
   selector: 'app-edit',
@@ -9,6 +11,8 @@ import { PieceService } from '../piece.service';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
+  allTypes: Type[] = [];
+
   pieceForm: Piece = {
     id: 0,
     name: '',
@@ -24,15 +28,27 @@ export class EditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router:Router,
-    private pieceService: PieceService
+    private router: Router,
+    private pieceService: PieceService ,
+    private typeService: TypeService 
   ) {}
  
   ngOnInit(): void {
     this.route.paramMap.subscribe((param) => {
       var id = Number(param.get('id'));
       this.getById(id);
+      this.getTypes();
     });
+  }
+  
+  getTypes() {
+    console.log("get all types...");
+
+    this.typeService.getAll().subscribe((data: Type[]) => {
+      this.allTypes = data;
+      console.log("data=", data); 
+    });
+
   }
  
   getById(id: number) {
@@ -44,12 +60,12 @@ export class EditComponent implements OnInit {
   update() {
     this.pieceService.update(this.pieceForm)
     .subscribe({
-      next:(data) => {
-        this.router.navigate(["/piece/home"]);
+      next: (data) => {
+        this.router.navigate(['/piece/home']);
       },
-      error:(err) => {
+      error: (err) => {
         console.log(err);
       }
-    })
+    });
   }
 }

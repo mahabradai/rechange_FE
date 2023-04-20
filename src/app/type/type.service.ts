@@ -6,8 +6,9 @@ import { Type } from './type';
   providedIn: 'root'
 })
 export class TypeService {
+ 
   constructor (private http: HttpClient) {}
-  get() {
+  getAll() {
     return this.http.get<Type[]>('http://localhost:8080/type');
   }
   create(payload: Type) {

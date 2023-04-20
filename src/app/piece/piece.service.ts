@@ -7,7 +7,7 @@ import { Piece } from './piece';
 })
 export class PieceService {
   constructor (private http: HttpClient) {}
-  get() {
+  getAll() {
     return this.http.get<Piece[]>('http://localhost:8080/piece');
   }
   create(payload: Piece) {
@@ -15,12 +15,11 @@ export class PieceService {
   }
   getById(id: number) {
     return this.http.get<Piece>(`http://localhost:8080/piece/${id}`);
-   }
-   update(payload:Piece){
+  }
+  update(payload: Piece) {
     return this.http.put(`http://localhost:8080/piece`,payload);
-   }
-   delete(id:number){
+  }
+  delete(id: number) {
     return this.http.delete<Piece>(`http://localhost:8080/piece/${id}`);
- }
-
+  }
 }

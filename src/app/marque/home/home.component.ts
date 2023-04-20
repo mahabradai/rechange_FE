@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
  
   get() {
-    this.marqueService.get().subscribe((data) => {
+    this.marqueService.getAll().subscribe((data) => {
       this.allMarques = data;
       console.log("data=",data) ; 
 

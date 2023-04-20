@@ -1,18 +1,17 @@
 <div class="container">
-    <legend>Edit Item</legend>
-    <form>
-      <div class="mb-3">
-        <label for="txtID" class="form-label">Id</label>
-        <input type="number" name="name" [(ngModel)]="marqueForm.id" class="form-control" id="txtID" />
-      </div>
-      
-      <div class="mb-3">
-        <label for="txtName" class="form-label">Name</label>
-        <input type="text" name="name" [(ngModel)]="marqueForm.name" class="form-control" id="txtName" />
-      </div>
-      
-      
-      <button type="button" (click)="update()" class="btn btn-primary">Update</button>
-    </form>
-  </div>
-  
+  <legend>Edit Item</legend>
+  <form>
+    <div class="mb-3">
+      <label for="txtID" class="form-label">Id</label>
+      <input type="number" name="name" [(ngModel)]="marqueForm.id" class="form-control" id="txtID" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Name</label>
+      <input type="text" name="name" [(ngModel)]="marqueForm.name" class="form-control" id="txtName" />
+    </div>
+    
+    
+    <button type="button" (click)="update()" class="btn btn-primary">Update</button>
+  </form>
+</div>

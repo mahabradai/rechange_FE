@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Piece } from '../piece';
 import { PieceService } from '../piece.service';
- 
+
 declare var window: any;
- 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,36 +12,36 @@ declare var window: any;
 export class HomeComponent implements OnInit {
   allPieces: Piece[] = [];
   deleteModal: any;
-  idTodelete: number = 0;
- 
+  idToDelete: number = 0;
+
   constructor(private pieceService: PieceService) {}
- 
+
   ngOnInit(): void {
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
- 
+
     this.get();
   }
- 
+
   get() {
-    this.pieceService.get().subscribe((data) => {
+    this.pieceService.getAll().subscribe((data: Piece[]) => {
       this.allPieces = data;
-      console.log("data=",data) ; 
+      console.log("data=",data);
     });
   }
- 
+
   openDeleteModal(id: number) {
-    this.idTodelete = id;
+    this.idToDelete = id;
     this.deleteModal.show();
   }
- 
+
   delete() {
-    this.pieceService.delete(this.idTodelete).subscribe({
+    this.pieceService.delete(this.idToDelete).subscribe({
       next: (data) => {
-        this.allPieces = this.allPieces.filter(_ => _.id != this.idTodelete)
+        this.allPieces = this.allPieces.filter(p => p.id != this.idToDelete);
         this.deleteModal.hide();
       },
     });
   }
-}   
+}

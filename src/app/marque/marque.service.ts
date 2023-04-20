@@ -6,9 +6,9 @@ import { Marque } from './marque';
   providedIn: 'root'
 })
 export class MarqueService {
-
+    
   constructor(private http: HttpClient) { }
-  get() {
+  getAll(){
     return this.http.get<Marque[]>('http://localhost:8080/marque');
   }
   create(payload: Marque) {

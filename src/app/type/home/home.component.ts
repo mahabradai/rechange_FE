@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
  
   get() {
-    this.typeService.get().subscribe((data) => {
+    this.typeService.getAll().subscribe((data) => {
       this.allTypes = data;
       console.log("data=",data) ; 
     });

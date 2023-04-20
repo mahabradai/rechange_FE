@@ -26,7 +26,8 @@ export class CreateComponent implements OnInit {
   constructor(
     private marqueService: MarqueService,
     private router: Router,
-    private typeService: TypeService
+    private typeService: TypeService , 
+    
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class CreateComponent implements OnInit {
   get() {
     console.log("get all marques...");
 
-    this.marqueService.get().subscribe((data) => {
+    this.marqueService.getAll().subscribe((data) => {
       this.allMarques = data;
       console.log("data=", data); 
     });

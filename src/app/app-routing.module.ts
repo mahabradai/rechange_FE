@@ -12,8 +12,6 @@ const routes: Routes = [
     { path:'piece-home' , component: PieceHomeComponent },
   ];
   
-
-
   
 
 
