@@ -7,7 +7,7 @@ import { Piece } from './piece';
 })
 export class PieceService {
   constructor (private http: HttpClient) {}
-  getAll() {
+  get() {
     return this.http.get<Piece[]>('http://localhost:8080/piece');
   }
   create(payload: Piece) {

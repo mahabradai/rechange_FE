@@ -40,7 +40,7 @@ export class CreateComponent implements OnInit {
 
   get() {
     console.log('Get all types...');
-    this.typeService.getAll().subscribe((data: Type[]) => {
+    this.typeService.get().subscribe((data: Type[]) => {
       this.allTypes = data;
       console.log('Data=', data);
     });

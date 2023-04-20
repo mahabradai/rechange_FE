@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   get() {
-    this.pieceService.getAll().subscribe((data: Piece[]) => {
+    this.pieceService.get().subscribe((data: Piece[]) => {
       this.allPieces = data;
       console.log("data=",data);
     });

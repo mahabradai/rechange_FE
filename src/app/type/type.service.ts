@@ -8,7 +8,7 @@ import { Type } from './type';
 export class TypeService {
  
   constructor (private http: HttpClient) {}
-  getAll() {
+  get() {
     return this.http.get<Type[]>('http://localhost:8080/type');
   }
   create(payload: Type) {
@@ -18,10 +18,10 @@ export class TypeService {
     return this.http.get<Type>(`http://localhost:8080/type/${id}`);
    }
    update(payload:Type){
-    return this.http.put(`http://localhost:8080/type`,payload);
+    return this.http.put(`http://localhost:8080/type`, payload);
    }
-   delete(id:number){
+   delete(id: number) {
     return this.http.delete<Type>(`http://localhost:8080/type/${id}`);
- }
+  }
 
 }

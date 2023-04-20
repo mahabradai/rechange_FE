@@ -44,7 +44,7 @@ export class EditComponent implements OnInit {
   getTypes() {
     console.log("get all types...");
 
-    this.typeService.getAll().subscribe((data: Type[]) => {
+    this.typeService.get().subscribe((data: Type[]) => {
       this.allTypes = data;
       console.log("data=", data); 
     });
